@@ -14,4 +14,8 @@ Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login'])
 Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
 //company
 Route::get('/company', [App\Http\Controllers\Api\CompanyController::class, 'show'])->middleware('auth:sanctum');
+//absenmasuk
+Route::post('/absendatang', [App\Http\Controllers\Api\AttendanceController::class, 'absendatang'])->middleware('auth:sanctum');
+//absenpulang
+Route::post('/absenpulang', [App\Http\Controllers\Api\AttendanceController::class, 'absenpulang'])->middleware('auth:sanctum');
 
