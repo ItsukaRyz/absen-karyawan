@@ -55,8 +55,21 @@ class AttendanceController extends Controller
                 // Ubah format tanggal untuk ditampilkan ke pengguna
                 $attendance->date = Carbon::parse($attendance->date)->locale('id')->isoFormat('dddd, DD-MM-YYYY');
 
-                return response(['message' => 'absen pulang berhasil','attendance' =>$attendance], 200);
+                return response(['message' => 'absen pulang berhasil','attendance' =>$attendance,], 200);
 
 
+    }
+    //absen jika sudah absen
+    public function isCheckedin (Request $request)
+    {
+        //get absen hari ini
+        $attendance = Attendance::where('user_id', auth()->user()->id)
+        ->where('date', Carbon::now()->format('Y-m-d'))
+        ->first();
+
+         // Ubah format tanggal untuk ditampilkan ke pengguna
+         $attendance->date = Carbon::parse($attendance->date)->locale('id')->isoFormat('dddd, DD-MM-YYYY');
+
+         return response(['chckedin' => $attendance ? true : false], 200);
     }
 }
