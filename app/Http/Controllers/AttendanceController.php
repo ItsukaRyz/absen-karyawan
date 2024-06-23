@@ -20,6 +20,5 @@ class AttendanceController extends Controller
         return view('pages.absen.index', compact('attendances'));
 
     }
-    public function create()
-    return view
+
 }
