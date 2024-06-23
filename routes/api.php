@@ -18,4 +18,7 @@ Route::get('/company', [App\Http\Controllers\Api\CompanyController::class, 'show
 Route::post('/absendatang', [App\Http\Controllers\Api\AttendanceController::class, 'absendatang'])->middleware('auth:sanctum');
 //absenpulang
 Route::post('/absenpulang', [App\Http\Controllers\Api\AttendanceController::class, 'absenpulang'])->middleware('auth:sanctum');
-
+//jikasudahabsen
+Route::get('/ischeckedin', [App\Http\Controllers\Api\AttendanceController::class,'isCheckedin'])->middleware('auth:sanctum');
+//updateprofile
+Route::post('/updateprofile', [App\Http\Controllers\Api\AuthController::class,'updateprofile'])->middleware('auth:sanctum');
