@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
 {
-    //
+    //index
     public function index(Request $request)
     {
         $attendances = Attendance::with('user')
@@ -20,4 +20,6 @@ class AttendanceController extends Controller
         return view('pages.absen.index', compact('attendances'));
 
     }
+    public function create()
+    return view
 }
