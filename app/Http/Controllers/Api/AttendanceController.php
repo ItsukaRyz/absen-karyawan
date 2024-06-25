@@ -70,6 +70,6 @@ class AttendanceController extends Controller
          // Ubah format tanggal untuk ditampilkan ke pengguna
          $attendance->date = Carbon::parse($attendance->date)->locale('id')->isoFormat('dddd, DD-MM-YYYY');
 
-         return response(['chckedin' => $attendance ? true : false], 200);
+         return response(['checkedin' => $attendance ? true : false], 200);
     }
 }
