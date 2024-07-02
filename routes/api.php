@@ -22,3 +22,4 @@ Route::post('/absenpulang', [App\Http\Controllers\Api\AttendanceController::clas
 Route::get('/ischeckedin', [App\Http\Controllers\Api\AttendanceController::class,'isCheckedin'])->middleware('auth:sanctum');
 //updateprofile
 Route::post('/updateprofile', [App\Http\Controllers\Api\AuthController::class,'updateprofile'])->middleware('auth:sanctum');
+Route::post('/permission', [App\Http\Controllers\Api\PermissionController::class,'permission'])->middleware('auth:sanctum');
