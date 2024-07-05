@@ -82,9 +82,9 @@
                                                 </td>
                                                 <td>
                                                     @if ($permission->is_approved == 1)
-                                                        Approved
+                                                        Disetujui
                                                     @else
-                                                        Not Approved
+                                                        Tidak Disetujui
                                                     @endif
                                                 </td>
 
