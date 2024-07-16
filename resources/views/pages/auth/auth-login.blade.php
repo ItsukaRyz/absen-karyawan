@@ -10,7 +10,7 @@
 
 @section('main')
     <div class="card card-primary">
-        <div class="card-header"> 
+        <div class="card-header">
             <h4>Login</h4>
         </div>
 
@@ -53,9 +53,6 @@
             </form>
 
         </div>
-    </div>
-    <div class="text-muted mt-5 text-center">
-        Don't have an account? <a href="auth-register.html">Create One</a>
     </div>
 @endsection
 
