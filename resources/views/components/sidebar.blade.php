@@ -16,8 +16,15 @@
             <li class="nav-item ">
                 <a href="{{route('users.index') }}"class="nav-link"><i class="fas fa-user "></i>
                     <span>User</span></a>
-
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('departments.index') }}" class="nav-link">
+                  <i class="fas fa-folder"></i>
+                  <span>Department</span>
+                </a>
+              </li>
+
             <li class="nav-item ">
                 <a href="{{route('companies.show', 1) }}"class="nav-link"><i class="fas fa-archive"></i>
                     <span>Kantor</span></a>

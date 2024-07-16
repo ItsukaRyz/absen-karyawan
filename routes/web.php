@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\DepartmentController;
 
 Route::get('/', function () {
     return view('pages.auth.auth-login');
@@ -20,6 +21,7 @@ Route::resource('users', UserController::class);
 Route::resource('companies', CompanyController::class);
 Route::resource('attendances', AttendanceController::class);
 Route::resource('permissions', PermissionController::class);
+Route::resource('departments', DepartmentController::class);
 });
 
 

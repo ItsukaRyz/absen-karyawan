@@ -101,17 +101,18 @@
                             </div>
                             <div class="form-group">
                                 <label>Department</label>
-                                <input type="text"
-                                    class="form-control @error('department')
-                                is-invalid
-                            @enderror"
-                                    name="department">
-                                @error('department')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+
+                                <select class="form-control selectric" name="department_id">
+                                  <option value="">Select Department</option>
+
+                                  @foreach($departments as $department)
+                                    <option value="{{ $department->id }}">
+                                      {{ $department->name }}
+                                    </option>
+                                  @endforeach
+
+                                </select>
+                              </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
                                 <div class="selectgroup w-100">
@@ -122,11 +123,11 @@
                                     </label>
                                     <label class="selectgroup-item">
                                         <input type="radio" name="role" value="doctor" class="selectgroup-input">
-                                        <span class="selectgroup-button">Doctor</span>
+                                        <span class="selectgroup-button">SuperVisor</span>
                                     </label>
                                     <label class="selectgroup-item">
                                         <input type="radio" name="role" value="user" class="selectgroup-input">
-                                        <span class="selectgroup-button">User</span>
+                                        <span class="selectgroup-button">Manager HRD</span>
                                     </label>
 
                                 </div>

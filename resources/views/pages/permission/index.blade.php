@@ -17,7 +17,6 @@
                 </div> --}}
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Permissions</a></div>
                     <div class="breadcrumb-item">All Permissions</div>
                 </div>
             </div>
@@ -82,9 +81,13 @@
                                                 </td>
                                                 <td>
                                                     @if ($permission->is_approved == 1)
-                                                        Disetujui
+                                                    <div class="card-body"><!-- Tombol setuju -->
+                                                        <div class="btn btn-success">Disetujui</div>
+                                                    </div>
                                                     @else
-                                                        Tidak Disetujui
+                                                    <div class="card-body"><!-- Tombol setuju -->
+                                                        <div class="btn btn-danger">Tidak Disetujui</div>
+                                                    </div>
                                                     @endif
                                                 </td>
 

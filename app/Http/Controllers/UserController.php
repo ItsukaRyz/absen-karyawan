@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,10 +19,13 @@ class UserController extends Controller
         return view('pages.users.index', compact('users'));
     }
 
+
+
     //create
     public function create()
     {
-        return view('pages.users.create');
+        $departments = Department::all();
+        return view('pages.users.create', compact('departments'));;
     }
 
     //storage
@@ -31,6 +35,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6',
+            'department' => 'required',
         ]);
 
         User::create([
@@ -40,7 +45,7 @@ class UserController extends Controller
             'role' => $request->role,
             'password' => Hash::make($request->password),
             'position'=>$request->position,
-            'department' => $request->department,
+            'department_id' => $request->department_id,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User Created Successfully');
@@ -58,6 +63,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'department' => 'required',
         ]);
 
         $user->update([
