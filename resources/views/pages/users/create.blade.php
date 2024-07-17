@@ -16,11 +16,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Advanced Forms</h1>
+                <h1>Isi Formulir</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Users</div>
                 </div>
             </div>
 
@@ -33,11 +32,11 @@
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
-                            <h4>Input Text</h4>
+                            <h4>Masukan Teks</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Nama</label>
                                 <input type="text"
                                     class="form-control @error('name')
                                 is-invalid
@@ -63,7 +62,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Kata Sandi</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
@@ -83,36 +82,22 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
+                                <label>Nomor Telepon</label>
                                 <input type="number" class="form-control" name="phone">
                             </div>
                             <div class="form-group">
-                                <label>Position</label>
+                                <label>Department</label>
                                 <input type="text"
-                                    class="form-control @error('position')
+                                    class="form-control @error('department')
                                 is-invalid
                             @enderror"
-                                    name="position">
-                                @error('position')
+                                    name="department">
+                                @error('department')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Department</label>
-
-                                <select class="form-control selectric" name="department_id">
-                                  <option value="">Select Department</option>
-
-                                  @foreach($departments as $department)
-                                    <option value="{{ $department->id }}">
-                                      {{ $department->name }}
-                                    </option>
-                                  @endforeach
-
-                                </select>
-                              </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
                                 <div class="selectgroup w-100">
@@ -122,11 +107,7 @@
                                         <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="doctor" class="selectgroup-input">
-                                        <span class="selectgroup-button">SuperVisor</span>
-                                    </label>
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="user" class="selectgroup-input">
+                                        <input type="radio" name="role" value="managerhrd" class="selectgroup-input">
                                         <span class="selectgroup-button">Manager HRD</span>
                                     </label>
 

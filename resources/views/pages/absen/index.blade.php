@@ -16,9 +16,8 @@
                     <a href="{{ route('attendances.create') }}" class="btn btn-primary">Add New</a>
                 </div> --}}
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Absensi Karyawan</a></div>
-                    <div class="breadcrumb-item">All Attendances</div>
+                    <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="attendances">Absensi Karyawan</a></div>
                 </div>
             </div>
             <div class="section-body">
@@ -29,7 +28,7 @@
                 </div>
                 <h2 class="section-title">Absensi Karyawan</h2>
                 <p class="section-lead">
-                    You can manage all Attendances, such as editing, deleting and more.
+                    Anda dapat mengelola semua Pengguna, seperti mengedit, menghapus, dan lainnya.
                 </p>
 
 
@@ -37,7 +36,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Posts</h4>
+                                <h4>Semua Kehadiran</h4>
                             </div>
                             <div class="card-body"><!-- Tombol Ekspor -->
                                 <div class="btn btn-success">Export Excel</div>
@@ -104,18 +103,8 @@
                                                         <a href='{{ route('attendances.edit', $attendance->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
-                                                            Edit
+                                                            Detail
                                                         </a>
-
-                                                        <form action="{{ route('attendances.destroy', $attendance->id) }}"
-                                                            method="POST" class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE" />
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete
-                                                            </button>
-                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>

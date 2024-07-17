@@ -11,13 +11,12 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Permissions</h1>
+                <h1>Perizinan</h1>
                 {{-- <div class="section-header-button">
                     <a href="{{ route('permissions.create') }}" class="btn btn-primary">Add New</a>
                 </div> --}}
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item">All Permissions</div>
+                    <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
                 </div>
             </div>
             <div class="section-body">
@@ -26,9 +25,9 @@
                         @include('layouts.alert')
                     </div>
                 </div>
-                <h2 class="section-title">Permissions</h2>
+                <h2 class="section-title">Perizinan</h2>
                 <p class="section-lead">
-                    You can manage all Permissions, such as editing, deleting and more.
+                    Anda dapat mengelola semua Pengguna, seperti mengedit, menghapus, dan lainnya.
                 </p>
 
 
@@ -36,14 +35,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Permissions</h4>
+                                <h4>Semua Perizinan</h4>
                             </div>
                             <div class="card-body">
 
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('permissions.index') }}">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search by name" name="name">
+                                            <input type="text" class="form-control" placeholder="Cari" name="name">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
@@ -57,21 +56,18 @@
                                     <table class="table-striped table">
                                         <tr>
 
-                                            <th>Name</th>
-                                            <th>Position</th>
+                                            <th>Nama</th>
                                             <th>Department</th>
-                                            <th>Date Permission</th>
-                                            <th>Is Approval</th>
+                                            <th>Tanggal Izin</th>
+                                            <th class="text-center">Persetujuan</th>
 
-                                            <th>Action</th>
+
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                         @foreach ($permissions as $permission)
                                             <tr>
 
                                                 <td>{{ $permission->user->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $permission->user->position }}
                                                 </td>
                                                 <td>
                                                     {{ $permission->user->department }}
@@ -80,16 +76,14 @@
                                                     {{ Carbon\Carbon::parse($permission->date_permission)->locale('id')->isoFormat('dddd, DD-MM-YYYY') }}
                                                 </td>
                                                 <td>
-                                                    @if ($permission->is_approved == 1)
-                                                    <div class="card-body"><!-- Tombol setuju -->
-                                                        <div class="btn btn-success">Disetujui</div>
+                                                    <div style="text-align: center">
+                                                      @if($permission->is_approved == 1)
+                                                        <button class="btn btn-success" style="width: 100%">Disetujui</button>
+                                                      @else
+                                                        <button class="btn btn-danger" style="width: 100%">Tidak Disetujui</button> 
+                                                      @endif
                                                     </div>
-                                                    @else
-                                                    <div class="card-body"><!-- Tombol setuju -->
-                                                        <div class="btn btn-danger">Tidak Disetujui</div>
-                                                    </div>
-                                                    @endif
-                                                </td>
+                                                  </td>
 
 
                                                 <td>

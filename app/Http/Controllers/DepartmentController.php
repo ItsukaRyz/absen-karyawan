@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
     public function index()
     {
         $departments = Department::all();
@@ -22,15 +23,15 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'department' => 'required',
+            'name' => 'required|max:255'
         ]);
+
 
         $department = new Department;
         $department->name = $request->name;
         $department->save();
 
-        return redirect()->route('departments.index')->with(compact('departments'));;
+        return redirect()->route('departments.index')->with('success', 'Department created successfully');
     }
 
     public function destroy(Department $department)

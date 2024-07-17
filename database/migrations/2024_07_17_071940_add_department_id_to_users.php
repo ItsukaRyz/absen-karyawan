@@ -10,14 +10,9 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { 
+    {
         Schema::table('users', function (Blueprint $table) {
-            //department
-            $table->string('department')->nullable();
-            //face_embedding
-            $table->text('face_embedding')->nullable();
-            //image
-            $table->string('image_url')->nullable();
+            //
         });
     }
 
@@ -28,9 +23,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('department');
-            $table->dropColumn('face_embedding');
-            $table->dropColumn('image_url');
         });
     }
 };

@@ -16,11 +16,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Advanced Forms</h1>
+                <h1>Isi Formulir</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Users</div>
                 </div>
             </div>
 
@@ -34,11 +33,11 @@
                         @csrf
                         @method('PUT')
                         <div class="card-header">
-                            <h4>Input Text</h4>
+                            <h4>Masukan Teks</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Nama</label>
                                 <input type="text"
                                     class="form-control @error('name')
                                 is-invalid
@@ -64,7 +63,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Kata Sandi</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
@@ -84,21 +83,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
+                                <label>Nomor Telepon</label>
                                 <input type="number" class="form-control" name="phone" value="{{ $user->phone }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Position</label>
-                                <input type="text"
-                                    class="form-control @error('position')
-                                is-invalid
-                            @enderror"
-                                    name="position" value="{{ $user->position }}">
-                                @error('position')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Department</label>
@@ -107,7 +93,7 @@
                                 is-invalid
                             @enderror"
                                     name="department" value="{{ $user->department }}">
-                                @error('department')
+                                @error('departement')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -117,26 +103,20 @@
                                 <label class="form-label">Roles</label>
                                 <div class="selectgroup w-100">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="hrd" class="selectgroup-input"
+                                        <input type="radio" name="role" value="admin" class="selectgroup-input"
                                             @if ($user->role == 'admin') checked @endif>
-                                        <span class="selectgroup-button">HRD</span>
+                                        <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="Staff" class="selectgroup-input"
-                                            @if ($user->role == 'doctor') checked @endif>
-                                        <span class="selectgroup-button">Staff</span>
+                                        <input type="radio" name="role" value="managerhrd" class="selectgroup-input"
+                                            @if ($user->role == 'supervisor') checked @endif>
+                                        <span class="selectgroup-button">Manager HRD</span>
                                     </label>
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="user" class="selectgroup-input"
-                                            @if ($user->role == 'user') checked @endif>
-                                        <span class="selectgroup-button">User</span>
-                                    </label>
-
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary">Kirim</button>
                         </div>
                     </form>
                 </div>

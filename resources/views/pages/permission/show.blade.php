@@ -12,14 +12,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Permission Detail</h1>
+                <h1>Detail</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item active"><a href="homw">Dashboard</a></div>
                     <div class="breadcrumb-item">Permission Detail</div>
                 </div>
             </div>
             <div class="section-body">
-                <h2 class="section-title">Permission Detail</h2>
+                <h2 class="section-title">Detail Perizinan</h2>
                 <p class="section-lead">
                     Informasi tentang detail izin karyawan.
                 </p>
@@ -40,10 +40,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-6 col-12">
-                                        <label>Position</label>
-                                        <p>{{ $permission->user->position }}</p>
-                                    </div>
+
                                     <div class="form-group col-md-6 col-12">
                                         <label>Department</label>
                                         <p>{{ $permission->user->department }}</p>
@@ -51,11 +48,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Date Permission</label>
+                                        <label>Tanggal Izin</label>
                                         <p>{{ $permission->date_permission }}</p>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Reason</label>
+                                        <label>Alasan</label>
                                         <p>{{ $permission->reason }}</p>
                                     </div>
                                 </div>

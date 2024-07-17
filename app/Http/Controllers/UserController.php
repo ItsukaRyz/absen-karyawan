@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -19,23 +18,19 @@ class UserController extends Controller
         return view('pages.users.index', compact('users'));
     }
 
-
-
     //create
     public function create()
     {
-        $departments = Department::all();
-        return view('pages.users.create', compact('departments'));;
+        return view('pages.users.create');
     }
 
-    //storage
+    //store
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6',
-            'department' => 'required',
+            'password' => 'required|min:8',
         ]);
 
         User::create([
@@ -44,11 +39,10 @@ class UserController extends Controller
             'phone' => $request->phone,
             'role' => $request->role,
             'password' => Hash::make($request->password),
-            'position'=>$request->position,
-            'department_id' => $request->department_id,
+            'department' => $request->department,
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User Created Successfully');
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     //edit
@@ -63,31 +57,31 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'department' => 'required',
         ]);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'position'=>$request->position,
-            'department' => $request->department,
             'role' => $request->role,
+            'department' => $request->department,
         ]);
 
-        //jika password terisi
+        //if password filled
         if ($request->password) {
             $user->update([
                 'password' => Hash::make($request->password),
+
             ]);
         }
-        return redirect()->route('users.index')->with('success', 'User Update Successfully');
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
     }
 
-    //delete
+    //destroy
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'User Deleted Successfully');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }
