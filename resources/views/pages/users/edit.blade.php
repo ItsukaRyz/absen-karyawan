@@ -16,7 +16,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Isi Formulir</h1>
+                <h1> Edit Pengguna</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -109,7 +109,7 @@
                                     </label>
                                     <label class="selectgroup-item">
                                         <input type="radio" name="role" value="managerhrd" class="selectgroup-input"
-                                            @if ($user->role == 'supervisor') checked @endif>
+                                            @if ($user->role == 'managerhrd') checked @endif>
                                         <span class="selectgroup-button">Manager HRD</span>
                                     </label>
                                 </div>

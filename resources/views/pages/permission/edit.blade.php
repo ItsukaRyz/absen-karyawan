@@ -70,7 +70,7 @@
                                             </p>
                                         </div>
                                         <div class="form-group col-md-6 col-12">
-                                            <label>Is Approval</label>
+                                            <label>Persetujuan</label>
                                             <select name="is_approved" class="form-control" style="height: 40px;">
                                                 <option value="1" {{ $permission->is_approval ? 'selected' : '' }}>
                                                     Disetujui</option>

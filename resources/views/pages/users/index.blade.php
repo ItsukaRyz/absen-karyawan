@@ -5,6 +5,8 @@
 @push('style')
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+
+
 @endpush
 
 @section('main')
@@ -30,16 +32,22 @@
                 <p class="section-lead">
                     Anda dapat mengelola semua Pengguna, seperti mengedit, menghapus, dan lainnya.
                 </p>
-
-
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>Semua Postingan</h4>
                             </div>
-                            <div class="card-body">
 
+                            <div class="card-body">
+                                <div class="card-body">
+                                    <!-- Tombol Ekspor -->
+                                    <a href="{{ route('user.export') }}" class="btn btn-primary">
+                                        <i class="fas fa-download"></i> Export Excel</a>
+
+                                    
+
+                                </div>
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('users.index') }}">
                                         <div class="input-group">
@@ -56,7 +64,6 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Nomor Telepon</th>
@@ -66,25 +73,16 @@
                                         </tr>
                                         @foreach ($users as $user)
                                             <tr>
-
-                                                <td>{{ $user->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $user->email }}
-                                                </td>
-                                                <td>
-                                                    {{ $user->phone }}
-                                                </td>
-                                                <td>
-                                                    {{ $user->department }}
-                                                </td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->phone }}</td>
+                                                <td>{{ $user->department }}</td>
                                                 <td>{{ $user->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('users.edit', $user->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
-                                                            <i class="fas fa-edit"></i>
-                                                            Edit
+                                                            <i class="fas fa-edit"></i> Edit
                                                         </a>
 
                                                         <form action="{{ route('users.destroy', $user->id) }}"
@@ -100,8 +98,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
-
                                     </table>
                                 </div>
                                 <div class="float-right">
@@ -113,11 +109,36 @@
                 </div>
             </div>
         </section>
-    </div>
+        <div class="modal modal-blur fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form action="/user.import" method="POST" enctype="multipart/form-data">
+                  <div class="modal-body">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                      <label for="fileInput">Select Excel File:</label>
+                      <input type="file" id="fileInput" name="excelFile" required="required">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div
+
 @endsection
 
 @push('scripts')
-    <!-- JS Libraies -->
+    <!-- JS Libraries -->
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
 
     <!-- Page Specific JS File -->

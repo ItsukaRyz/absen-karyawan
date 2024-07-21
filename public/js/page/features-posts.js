@@ -25,5 +25,6 @@ $("[data-checkboxes]").each(function() {
         dad.prop('checked', false);
       }
     }
+    
   });
 });

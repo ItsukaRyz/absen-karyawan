@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -31,6 +35,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8',
+            'department' => 'nullable|string',
+            'role' => 'required|in:admin,managerhrd',
         ]);
 
         User::create([
@@ -40,6 +46,8 @@ class UserController extends Controller
             'role' => $request->role,
             'password' => Hash::make($request->password),
             'department' => $request->department,
+            'email_verified_at' => now(), // Menandakan email diverifikasi saat ini
+            'remember_token' => Str::random(10),
         ]);
 
         return redirect()->route('users.index')->with('success', 'User created successfully');
@@ -57,6 +65,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            
         ]);
 
         $user->update([
@@ -83,5 +92,10 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
+    }
+    public function userexport()
+    {
+        // export data ke excel
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

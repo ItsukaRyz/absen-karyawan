@@ -79,13 +79,13 @@
                                                     <div style="text-align: center">
                                                       @if($permission->is_approved == 1)
                                                         <button class="btn btn-success" style="width: 100%">Disetujui</button>
+                                                      @elseif($permission->is_approved == 0)
+                                                        <button class="btn btn-danger" style="width: 100%">Tidak Disetujui</button>
                                                       @else
-                                                        <button class="btn btn-danger" style="width: 100%">Tidak Disetujui</button> 
+                                                        <button class="btn btn-warning" style="width: 100%">Pending</button>
                                                       @endif
                                                     </div>
-                                                  </td>
-
-
+                                                </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('permissions.show', $permission->id) }}'

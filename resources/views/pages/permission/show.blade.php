@@ -71,7 +71,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Is Approval</label>
+                                        <label>Persetujuan</label>
                                         <p>
                                             @if ($permission->is_approved == 1)
                                                 Disetujui
