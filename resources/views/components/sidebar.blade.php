@@ -31,10 +31,14 @@
             <li class="nav-item ">
                 <a href="{{route('permissions.index') }}"class="nav-link"><i class="fas fa-file-lines"></i>
                     <span>Perizinan</span></a>
-            <!-- sidebar.blade.php -->
-            <li class="nav-item ">
+                    <li class="nav-item ">
+                         <!--  <a href="3   " class="nav-link"><i class="fas fa-calendar-alt"></i><span>Cuti</span></a>
+                    </li>
+          sidebar.blade.php -->
+           <li class="nav-item ">
                 <a href="{{route('reports.index')}}" class="nav-link"><i class="fas fa-print"></i><span>Laporan</span></a>
             </li>
+
 
 
     </aside>

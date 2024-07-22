@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\ReportController;
 use App\Models\Attendance;
 
@@ -27,6 +28,7 @@ Route::resource('companies', CompanyController::class);
 Route::resource('attendances', AttendanceController::class);
 Route::get('/attendances/{id}', 'AttendanceController@show');
 Route::resource('permissions', PermissionController::class);
+
 // web.php
 
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
