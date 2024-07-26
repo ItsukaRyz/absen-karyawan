@@ -16,10 +16,11 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Isi Formulir</h1>
+                <h1>Form Tambah User</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="home">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
+                    <div class="breadcrumb-item">Users</div>
                 </div>
             </div>
 
@@ -32,7 +33,7 @@
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
-                            <h4>Masukan Teks</h4>
+                            <h4>Input Text</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
@@ -62,7 +63,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Kata Sandi</label>
+                                <label>Password</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
@@ -82,7 +83,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Nomor Telepon</label>
+                                <label>Nomoer Telepon</label>
                                 <input type="number" class="form-control" name="phone">
                             </div>
                             <div class="form-group">
@@ -107,15 +108,19 @@
                                         <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="managerhrd" class="selectgroup-input">
-                                        <span class="selectgroup-button">Manager HRD</span>
+                                        <input type="radio" name="role" value="hrd" class="selectgroup-input">
+                                        <span class="selectgroup-button">HRD</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="role" value="karyawan" class="selectgroup-input">
+                                        <span class="selectgroup-button">karyawan</span>
                                     </label>
 
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Kirim</button>
+                            <button class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

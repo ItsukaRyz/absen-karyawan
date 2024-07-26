@@ -103,14 +103,16 @@
                                 <label class="form-label">Roles</label>
                                 <div class="selectgroup w-100">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="admin" class="selectgroup-input"
-                                            @if ($user->role == 'admin') checked @endif>
+                                        <input type="radio" name="role" value="admin" class="selectgroup-input" @if ($user->role == 'admin') checked @endif>
                                         <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="managerhrd" class="selectgroup-input"
-                                            @if ($user->role == 'managerhrd') checked @endif>
-                                        <span class="selectgroup-button">Manager HRD</span>
+                                        <input type="radio" name="role" value="hrd" class="selectgroup-input" @if ($user->role == 'hrd') checked @endif>
+                                        <span class="selectgroup-button">HRD</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="role" value="karyawan" class="selectgroup-input" @if ($user->role == 'karyawan') checked @endif>
+                                        <span class="selectgroup-button">Karyawan</span>
                                     </label>
                                 </div>
                             </div>

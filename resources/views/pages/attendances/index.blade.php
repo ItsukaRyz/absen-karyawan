@@ -40,10 +40,6 @@
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
-                                        <div class="input-group me-2">
-                                            <input type="text" class="form-control datepicker" placeholder="Select date" name="date">
-                                        </div>
-
                                     </form>
                                 </div>
 
@@ -141,7 +137,7 @@
                                 .openPopup();
 
                             L.circle([-6.155660, 106.662205], {
-                                color: 'red', 
+                                color: 'red',
                                 fillColor: '#f03',
                                 fillOpacity: 0.5,
                                 radius: 50

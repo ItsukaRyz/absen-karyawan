@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'Jl. Garuda No.99, RT.006/RW.005, Batujaya, Kec. Batuceper, Kota Tangerang, Banten 15121',
             'latitude'=>'-6.155660',
             'longitude'=>'106.662205',
-            'radius_km'=>'0.5',
+            'radius_km'=>'100',
             'time_in'=>'08:00',
             'time_out'=>'17:00',
         ]);
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AttendanceSeeder::class,
             PermissionSeeder::class,
-        ]);
+             ]);
 
     }
 

@@ -35,8 +35,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8',
-            'department' => 'nullable|string',
-            'role' => 'required|in:admin,managerhrd',
         ]);
 
         User::create([
@@ -65,7 +63,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            
+
         ]);
 
         $user->update([
